@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Welcome!
+{% endblock %}
+
+{%  block signin %}
+    {{ login }}
+{% endblock %}
+
+{% block body %}
+    <h1>Welcome to the Marcel Proust Club</h1>
+    <p> <img src="static/proust.jpg" height="300"> The author of In search of lost time. </p>
+
+    <div> {{ message }}</div>
+
+    <h2>First time visiting? Create account here.</h2>
+    <form action="{{ url_for('create_account') }}" method="post">
+    <input type='text' name="sign_in_username" placeholder="Chose your username">
+    <input type='text' name="sign_in_password" placeholder="Chose your password">
+    <button>Submit</button>
+    </form>
+
+    <h2>Already have an account? Log in here.</h2>
+    <form action="{{ url_for('log_in') }}" method="post">
+    <input type='text' name="log_in_username" placeholder="Existing username">
+    <input type='text' name="log_in_password" placeholder="Existing password">
+    <button>Submit</button>
+    </form>
+
+    <h2>Already logged in?</h2>
+    <a href="{{ url_for('search_page') }}" > Start diving into our books here! </a>
+{% endblock %}

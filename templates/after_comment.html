@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Your comment
+{% endblock %}
+
+{% block body %}
+    <h1>Status on your comment</h1>
+
+    {{ message }}
+
+    <div>
+        <a href="{{ url_for('search_page') }}"> Go back to search page </a>
+    </div>
+
+{% endblock %}

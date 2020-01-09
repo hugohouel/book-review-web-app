@@ -1,0 +1,14 @@
+db.execute("CREATE TABLE books (isbn VARCHAR PRIMARY KEY, "
+           "title VARCHAR NOT NULL, "
+           "author VARCHAR NOT NULL, "
+           "year INTEGER NOT NULL,"
+           "nb_ratings INTEGER,"
+           "avg_ratings REAL)")
+
+CREATE TABLE users (username VARCHAR PRIMARY KEY, password VARCHAR NOT NULL);
+
+CREATE TABLE reviews (id SERIAL PRIMARY KEY,
+rating INTEGER NOT NULL,
+comment VARCHAR NOT NULL,
+username VARCHAR NOT NULL REFERENCES users,
+isbn VARCHAR NOT NULL REFERENCES books);

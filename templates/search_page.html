@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Search Page
+{% endblock %}
+
+{%  block signin %}
+    {% if 'username' in session %}
+        LOGGED IN as {{ session['username'] }}
+    {% else %}
+        NOT LOGGED IN
+    {% endif %}
+{% endblock %}
+
+{% block body %}
+    <h1>Welcome back {{ username }} !</h1>
+    Here, you can search for books and find reviews, ratings, and more!
+
+    <form action="{{ url_for('search') }}" method="post">
+    <input type='text' name="input_query" placeholder="Search by Title, Author or ISBN...">
+    <button>Submit</button>
+    </form>
+
+    <h1>Your results </h1>
+    {{ message }}
+    {% for book in propositions %}
+    <li>
+    <a href="{{ url_for('book', isbn=book['isbn']) }}" > {{ book }} </a>
+    </li>
+    {% endfor %}
+
+{% endblock %}
