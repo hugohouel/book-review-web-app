@@ -16,20 +16,10 @@ To work, this app requires 3 tables managing:
 ## Getting started
 
 Follow the following steps :
-* To make sure you have all the required package, run
-```
-pip install requirements.txt
-```
+* To make sure you have all the required package, run ```pip install requirements.txt```
 * Assuming you have already setup a SQL database environement, set the DATABASE_URL environement variable. Then run the 3 SQL commands that are into "table_initialization" : this will create the tables.
-* run 
-```
-python import.py
-```
-which will import the books from the .csv into the books table, call the goodreads API and log the data into the database.
-* To launch the app : 
-```
-flask run
-```
+* run ```python import.py```, which will import the books from the .csv into the books table, call the goodreads API and log the data into the database.
+* To launch the app, do ```flask run```
 
 ## Acknowledgement
 
